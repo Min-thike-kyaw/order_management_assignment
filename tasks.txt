@@ -1,0 +1,8 @@
+{
+    order items - crd
+    order - addItems, removeItems
+    customer - address changed
+    all modules - force delete , restores
+    all modules - structure, catch cache
+    test
+}

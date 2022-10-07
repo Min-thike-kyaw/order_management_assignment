@@ -1,0 +1,1373 @@
+{
+	"info": {
+		"_postman_id": "91ef46c8-d2fd-41e7-a6f4-13de43200b9d",
+		"name": "OrderManagement",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13923411"
+	},
+	"item": [
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/categories",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "category test",
+									"type": "text"
+								},
+								{
+									"key": "name_mm",
+									"value": "category myanmar",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/categories",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/categories/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Category 3 update",
+									"type": "text"
+								},
+								{
+									"key": "name_mm",
+									"value": "တင်eif",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/categories/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"5"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/categories/10",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restore",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/categories/10/restore",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"10",
+								"restore"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "permanent-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/categories/1/permanent-delete",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"1",
+								"permanent-delete"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/products",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTRkYTM1YTQ5NjE5ZTVjNjRlYzdkNWFhYTM0ZmQ1NmE2NWYxOTFiMjc4OThjZTUzNDkwODJkZDMxOTE4ZjA2YTE1NzZlZDE2NWIzZDUwMTkiLCJpYXQiOjE2NjQ5NjExMDYuMjk3NzMxLCJuYmYiOjE2NjQ5NjExMDYuMjk3NzM0LCJleHAiOjE2OTY0OTcxMDYuMTQyNjE3LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.h3Ao5iRpYXJ1rmcbVNcaGhqJ4xqKm4LXGNfU87812yiviSBBqj8dRcGxjk4M1air7ghoUIgv5K55gKLZIeBvHTnVqP1mdk1SOhQW95y6d6G1gfn2dFPy43NL2CXQ3wSUTrtq6ZfZl_Rao4jGT-dpYHuEHSlgfJehBlyaSc1jjaAgwV0HSn2qUdgh7JZo7h18HlyCquBqj7__g_B-rV2sOKfYdN4ucEo6ZRhXTQq9l_l05zgP1shOUTD2A-kCncoAoHd6FQqGvWIT_lD8KAnXfwFjOmM42NsLpLCfv31g3t7BWEx2uNPnb8kpGeyN43ZTb5MosyUvzfYNzOVFwTV2lurY5_9uMs546lWnvBkI2LYmO126gz2s6fO3ugGL2EV7VAorV6CaSyDNZ5a3RTcZDW5-EL4-fAd7SsDM1W0l__rrStsISjG-hCNFD8_l9GajvZAKkO5hoAuX-SCAK6bmkXYJqm-DsLSlUI6OUgVq4-ekttLIpSilTlBZE7IokBrnXRSGGW6Pw9Z-CEr4dicziJ375Z7ZyEm5GV5fSUiSOH_TbEfv5pJikhT_r0UlF91xWOYdQjRgo5VIUNVl9bsYVvxGkunxsj82uwlibIZMHXLn2FTo5MZ-J2SARqkAkq-ldAw_vSyTh0kDuzkzaBDC04jfE7o82-520tcL0R3-bRM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Product 8",
+									"type": "text"
+								},
+								{
+									"key": "name_mm",
+									"value": "hello-world-23243",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "40",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "6pLpt8MMZ/25_File_Upload_2_Moment.jpg"
+								},
+								{
+									"key": "weight",
+									"value": "20 lb",
+									"type": "text"
+								},
+								{
+									"key": "is_available",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/products",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/products/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTRkYTM1YTQ5NjE5ZTVjNjRlYzdkNWFhYTM0ZmQ1NmE2NWYxOTFiMjc4OThjZTUzNDkwODJkZDMxOTE4ZjA2YTE1NzZlZDE2NWIzZDUwMTkiLCJpYXQiOjE2NjQ5NjExMDYuMjk3NzMxLCJuYmYiOjE2NjQ5NjExMDYuMjk3NzM0LCJleHAiOjE2OTY0OTcxMDYuMTQyNjE3LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.h3Ao5iRpYXJ1rmcbVNcaGhqJ4xqKm4LXGNfU87812yiviSBBqj8dRcGxjk4M1air7ghoUIgv5K55gKLZIeBvHTnVqP1mdk1SOhQW95y6d6G1gfn2dFPy43NL2CXQ3wSUTrtq6ZfZl_Rao4jGT-dpYHuEHSlgfJehBlyaSc1jjaAgwV0HSn2qUdgh7JZo7h18HlyCquBqj7__g_B-rV2sOKfYdN4ucEo6ZRhXTQq9l_l05zgP1shOUTD2A-kCncoAoHd6FQqGvWIT_lD8KAnXfwFjOmM42NsLpLCfv31g3t7BWEx2uNPnb8kpGeyN43ZTb5MosyUvzfYNzOVFwTV2lurY5_9uMs546lWnvBkI2LYmO126gz2s6fO3ugGL2EV7VAorV6CaSyDNZ5a3RTcZDW5-EL4-fAd7SsDM1W0l__rrStsISjG-hCNFD8_l9GajvZAKkO5hoAuX-SCAK6bmkXYJqm-DsLSlUI6OUgVq4-ekttLIpSilTlBZE7IokBrnXRSGGW6Pw9Z-CEr4dicziJ375Z7ZyEm5GV5fSUiSOH_TbEfv5pJikhT_r0UlF91xWOYdQjRgo5VIUNVl9bsYVvxGkunxsj82uwlibIZMHXLn2FTo5MZ-J2SARqkAkq-ldAw_vSyTh0kDuzkzaBDC04jfE7o82-520tcL0R3-bRM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "hell",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "qqXru3Wdo/25_File_Upload_2_Moment.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/products/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/products/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restore",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/products/1/restore",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"1",
+								"restore"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "permanent-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/products/1/permanent-delete",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"1",
+								"permanent-delete"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "customers",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/customers",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/customers",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/customers/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:8000/api/customers/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/customers/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restore",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/customers/1/restore",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customers",
+								"1",
+								"restore"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "permanent-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/customers/2/permanent-delete",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customers",
+								"2",
+								"permanent-delete"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_name",
+									"value": "Jhon_doe2",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "internet",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "user@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/users/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user_name",
+									"value": "marry_jame",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "internet",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/users/11",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/users/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restore",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/users/1/restore",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"1",
+								"restore"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "permanent-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/users/3/permanent-delete",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"3",
+								"permanent-delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customer_id\" : 8,\r\n    \"total_discount\" : 200,\r\n    \"order_items\": [\r\n        {\r\n            \"product_id\" : 8,\r\n            \"price\": 1000,\r\n            \"qty\": 6\r\n        },\r\n        {\r\n            \"product_id\": 10,\r\n            \"price\" : 2000,\r\n            \"qty\": 10\r\n        }\r\n\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/orders/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"orders",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "customer_id",
+									"value": "11",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "total_discount",
+									"value": "100",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "total_price",
+									"value": "5000",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/orders/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"orders",
+								"2"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/orders/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"orders",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove-items",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"order_item_ids\" : [1,2]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/orders/1/remove-items",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"orders",
+								"1",
+								"remove-items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-multiple",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"order_items\" : [\r\n        { \"product_id\": 14, \"qty\": 3, \"price\": 250 },\r\n        { \"product_id\": 9, \"qty\": 3, \"price\": 600 }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/orders/2/add-multiple-items",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"orders",
+								"2",
+								"add-multiple-items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_id",
+									"value": "9",
+									"type": "text"
+								},
+								{
+									"key": "qty",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "200",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/orders/2/add-item",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"orders",
+								"2",
+								"add-item"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restore",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/orders/2/restore",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"orders",
+								"2",
+								"restore"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "permanent-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/orders/1/permanent-delete",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"orders",
+								"1",
+								"permanent-delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order_items",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "order_id",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "product_id",
+									"value": "8",
+									"type": "text"
+								},
+								{
+									"key": "qty",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "100",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/order-items",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"order-items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "qty",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8000/api/order-items/10",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"order-items",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/order-items/9",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"order-items",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restore",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/order-items/3/restore",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"order-items",
+								"3",
+								"restore"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "permanent-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/order-items/9/permanent-delete",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"order-items",
+								"9",
+								"permanent-delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_name",
+							"value": "esperanza58",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/api/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_name",
+							"value": "min_thike_2",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "internet",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "internet",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/api/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/logout",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjYzNGYwMGI3MDcwN2E2OGZlZDE0MmZjZDUxOTY2YWRiZWEyYTNjNDA2NDE1YTE2MDJhM2E5NTBlOTA5Y2ZiYWQ0MTAwNTY1MTg2ODI0YmMiLCJpYXQiOjE2NjUxNDIwNTQuNDQxMDQsIm5iZiI6MTY2NTE0MjA1NC40NDEwNTIsImV4cCI6MTY5NjY3ODA1NC4zMjQ4NTMsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.nOTdtDEgs67NA7wlPG7wCkcxI0dDYSQKN0o1OB7Nhw4Hsxhj9jVJZdin6gsTRttYqZWWatASCAIEmF0RUMPhWX0G93hnLi8RsDRO5vdYYPmxQKYd62uTCEeoKQIpWgxFK01K6zUO7ttxi4yweW9wPSO74qm6Y9uSXA6qAkgCugbJTeipWXthU6FeHQTvP9RdLP5JQXqQH-QZq_SPFSj5oVd932KdHew7VdCKZaZ08LO_SEtnStmpqrnvQI8c2unF7QanDnxQMUUFTL1SXE-qcxfETlOpYiVd3cFg-BcZtmFxRoW6ihAeCDCp5aceGnFv_GjTsHE1q8ciqktkBKget1neq9kuXabuwOEwBqnZbQuhSDPSIbCCAQ_ryVDChztrhGyxW7BZbdDxsTulARow7CWtaqyY360xA-kTdbFY-ObOBFf7x0so-nQ_RoMAPzxcijJt1_L02jAi8EubRlOTmC8EwZrK_Uxwa746I44tCRrpydHQ9VQRsskn_lzhvJe4-o3QRBALIHeNLVS174Xxi_4xFz7AAgz7TKior5iroLIzgR-mdUMrsYqg_Z18oDvVo_s0H4SWEr8VJKDZ54NJbqGe1Yl-lrgVOMhirOV-Fcg7-uKcWtik1AgWgqkmB1LBGrYiqMnJce6SEB2kS8k2LZ5nX9KAJE2MWfC_4jfzElM",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "eyJhdWQiOiIxIiwianRpIjoiNjBiNmE4MjU1OTdhZWMzNmVjMjJhYjFiZDVjYmI3ZTBkMTQ2NGRhZmJiYzkwMTM2ZWI0YzgyYTQ0M2ZhNGQ3NGRkYTdlYjVjZjNjNGZkNmYiLCJpYXQiOjE2NjQ5NDU1OTQuNjI4MDc3LCJuYmYiOjE2NjQ5NDU1OTQuNjI4MDc5LCJleHAiOjE2OTY0ODE1OTMuOTYxOTIsInN1YiI6IjEiLCJzY29wZXMiOltdfQ"
+		}
+	]
+}
