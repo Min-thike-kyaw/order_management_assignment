@@ -22,7 +22,7 @@ For Filtering you can test with get method keys
 - Examples
     ```
     localhost:8000/api/categories?name=blah_blah
-    localhost:8000/api/products?category=blah&page2&per_page=4
+    localhost:8000/api/products?category=blah&page=2&per_page=4
     ```
        
 
