@@ -9,6 +9,7 @@ use App\Filters\CategoryFilter;
 use App\Http\Resources\CategoryResource;
 use Illuminate\Database\QueryException;
 use App\Interfaces\CategoryRepositoryInterface;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryRepository implements CategoryRepositoryInterface
 {
@@ -91,8 +92,19 @@ class CategoryRepository implements CategoryRepositoryInterface
     {
         try {
             $category = Category::withTrashed()->findOrFail($categoryId);
+
+
             if(!$category->canSecureDelete('products')) {
                 return ['success' => false, 'message' => "Cannot delete. Remove all the related associations.", 'code' => 419];
+            }
+            $productImages = $category->products()->withTrashed()->pluck('products.image')->toArray();
+
+            if(count($productImages)){
+                foreach($productImages as $image){
+                    if(Storage::exists($image)) {
+                    Storage::delete($image);
+                    }
+                }
             }
             $category->forceDeleteWithRelations('products');
             $result = ['success' => true, 'data' => NULL, 'code' => Response::HTTP_NO_CONTENT];

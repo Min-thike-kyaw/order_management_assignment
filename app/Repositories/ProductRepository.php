@@ -106,6 +106,9 @@ class ProductRepository implements ProductRepositoryInterface
     {
         try{
             $product = Product::withTrashed()->findOrFail($productId);
+            if(Storage::exists($product->image)) {
+                Storage::delete($product->image);
+            }
             $product->forceDelete();
             $result = ['success' => true, 'data' => NULL, 'code' => Response::HTTP_NO_CONTENT];
         } catch (Exception $e) {
